@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { RapperUniverseService } from './rapper-universe.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'course-project';
+  ruService: RapperUniverseService;
+
+  constructor(ruService: RapperUniverseService) {
+    this.ruService = ruService;
+  }
+
+  ngOnInit(){
+    this.ruService.fetchData();
+  }
 }
